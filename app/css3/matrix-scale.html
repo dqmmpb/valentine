@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js theme-gray" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>CSS3</title>
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory -->
+<link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+
+<!-- rev-hash -->
+<!-- build:css assets/css/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:css assets/css/css3/matrix-scale.css -->
+<link rel="stylesheet" href="/assets/css/css3/matrix-scale.css">
+<!-- endbuild -->
+<!-- end -->
+
+</head>
+<body>
+
+<h1>变换(transform scale)</h1>
+
+<section>
+  <h2>矩阵变换 scale</h2>
+  <div id="matrix">
+    <p>对于matrix(<span class="axis_x">1</span>, 0, 0, <span class="axis_y">1</span>, 0, 0)缩放，位置计算等式为：</p>
+    <p> x' = ax+cy+e = <span class="axis_x">1</span>*x+0*y+0 = x * <span class="axis_x">1</span>;</p>
+    <p> y' = bx+dy+f = 0*x+<span class="axis_y">1</span>*y+0 = y * <span class="axis_y">1</span>;</p>
+    <p> w' = aw = <span class="axis_x">1</span>*w = w * <span class="axis_x">1</span>;</p>
+    <p> h' = dh = <span class="axis_y">1</span>*h = h * <span class="axis_y">1</span>;</p>
+
+    <div id="current">
+    </div>
+
+    <div class="control">
+      <div class="axis">
+        <label for="axis_x">scale x</label>
+        <input type="range" min="0.5" max="2" step="0.1" value="1" id="axis_x" name="axis_x" />
+      </div>
+      <div class="axis">
+        <label for="axis_y">scale y</label>
+        <input type="range" min="0.5" max="2" step="0.1" value="1" id="axis_y" name="axis_y" />
+      </div>
+
+      <button type="button" class="reset" id="reset">重置</button> <button type="button" class="transform" id="transform">缩放</button>
+    </div>
+
+
+    <div class="panel-demo">
+      <div id="matrix-o" class="matrix-o">
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/vendor/modernizr.js -->
+<script src="/bower_components/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/common.js -->
+<script src="/_assets/scripts/common.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/css3/index.js -->
+<script src="/_assets/scripts/css3/index.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/css3/matrix-scale.js -->
+<script src="/_assets/scripts/css3/matrix-scale.js"></script>
+<!-- endbuild -->
+<!-- end -->
+</body>
+</html>
