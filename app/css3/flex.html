@@ -1,0 +1,101 @@
+<!doctype html>
+<html class="no-js theme-gray" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>CSS3</title>
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory -->
+<link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+
+<!-- rev-hash -->
+<!-- build:css assets/css/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:css assets/css/css3/flex.css -->
+<link rel="stylesheet" href="/assets/css/css3/flex.css">
+<!-- endbuild -->
+<!-- end -->
+
+</head>
+<body>
+
+<h1>伸缩盒(flexible box)</h1>
+
+<section>
+  <h2>Flex(width: 800px;)</h2>
+  <div id="flex">
+    <h3>flex-grow: 1; flex-shrink: 1; flex-grow: 1; flex-shrink: 1; flex-grow: 1; flex-shrink: 1;</h3>
+    <ul class="box1">
+      <li>flex:1 1 300px</li>
+      <li>flex:1 1 200px</li>
+      <li>flex:1 1 500px</li>
+    </ul>
+
+    <h3>flex-grow: 1; flex-shrink: 1; flex-grow: 2; flex-shrink: 2; flex-grow: 3; flex-shrink: 3;</h3>
+    <ul class="box2">
+      <li>flex:1 1 300px</li>
+      <li>flex:2 2 200px</li>
+      <li>flex:3 3 500px</li>
+    </ul>
+    <div>
+      <p>box：800px 需要收缩比例，flex-shrink参数， 300px + 200px + 500px = 1000px; 800px - 1000px = -200px</p>
+      <p>300px + 2*200px + 3*500px = 2200px;</p>
+      <p>flex1: 需收缩 (300px / 2200px) * 200px = 27.27px;    实际 300px - 27.27px = 272.73px</p>
+      <p>flex2: 需收缩 (2*200px / 2200px) * 200px = 36.36px;    实际 200px - 36.36px = 163.64px</p>
+      <p>flex3: 需收缩 (3*500px / 2200px) * 200px = 136.36px;    实际 500px - 136.36px = 363.64px</p>
+    </div>
+
+    <h3>flex-grow: 1; flex-shrink: 1; flex-grow: 2; flex-shrink: 2; flex-grow: 3; flex-shrink: 3;</h3>
+    <ul class="box3">
+      <li>flex:1 1 300px</li>
+      <li>flex:2 2 200px</li>
+      <li>flex:3 3 500px</li>
+    </ul>
+    <div>
+      <p>box：1200px 需要扩展比例，flex-grow参数， 300px + 200px + 500px = 1000px; 1200px - 1000px = 200px</p>
+      <p>1 + 2 + 3 = 6</p>
+      <p>flex1: 需扩展 (1 / 6) * 200px = 33.33px;    实际 300px + 33.33px = 333.33px</p>
+      <p>flex2: 需扩展 (2 / 6) * 200px = 66.67px;    实际 200px + 66.67px = 266.67px</p>
+      <p>flex3: 需扩展 (3 / 6) * 200px = 100px;    实际 500px + 100px = 600px</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/vendor/modernizr.js -->
+<script src="/bower_components/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/common.js -->
+<script src="/_assets/scripts/common.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/css3/index.js -->
+<script src="/_assets/scripts/css3/index.js"></script>
+<!-- endbuild -->
+<!-- end -->
+</body>
+</html>

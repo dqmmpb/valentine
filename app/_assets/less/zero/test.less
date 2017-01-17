@@ -1,0 +1,98 @@
+@mySelector: banner;
+
+.@{mySelector} {
+  font-size: 12px;
+}
+
+
+.clazz {
+  @{mySelector}: 12px;
+  background-@{mySelector}: black;
+}
+
+.mixin(@a) when (lightness(@a) >= 50%) {
+  background-color: black;
+}
+
+.mixin(@a) when (lightness(@a) < 50%) {
+  background-color: white;
+}
+
+.mixin(@a) {
+  color: @a;
+}
+
+
+.class1 {
+  .mixin(#ddd);
+}
+
+.class2 {
+  .mixin(#555);
+}
+
+.loop(@n; @i: 1) when(@i <= @n) {
+  .column-@{i} {
+    width: (@i * 100% / @n);
+  }
+
+  .loop(@n, (@i + 1));
+}
+
+
+.loop(4);
+
+
+.merge() {
+  box-shadow+: inset 0 0 10px #555;
+  transform+_: rotate(30deg) translateX(10px);
+}
+
+.myclass {
+  .merge();
+  box-shadow+: 0 0 20px black;
+  transform+_: rotate(50deg) translateZ(10px);
+}
+
+
+.button {
+  &-ok {
+    background: green;
+  }
+
+  &-cancel {
+    background: red;
+  }
+
+  &-confirm {
+    background: blue;
+  }
+}
+
+
+.link {
+  & + & {
+    color: red;
+  }
+
+  & & {
+    color: green;
+  }
+
+  && {
+    color: blue;
+  }
+
+  &, &ish {
+    color: cyan;
+  }
+}
+
+
+p, a, ul, li {
+  border-top: 2px dotted #366;
+
+  & + & {
+    border-top: 0;
+  }
+}

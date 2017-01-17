@@ -1,0 +1,166 @@
+
+// Cube style
+
+.cube {
+  @rotateX: -33.5deg;
+  transform-style: preserve-3d;
+  transform: rotateX(@rotateX) rotateY(45deg);
+
+  //border: 1px solid black;
+  position: absolute;
+  backface-visibility: hidden;
+
+  .face {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.top {
+      background: red;
+    }
+    &.bottom {
+      background: yellow;
+    }
+    &.left {
+      background: blue;
+    }
+    &.right {
+      background: purple;
+    }
+    &.front {
+      background: orange;
+    }
+    &.back {
+      background: green;
+    }
+  }
+
+  &.rotate {
+    animation: rotate 3s infinite;
+
+    @keyframes rotate {
+      0% {
+        transform: rotateX(@rotateX) rotateY(45deg);
+      }
+
+      67% {
+        transform: rotateX(@rotateX) rotateY(45deg);
+      }
+
+      100% {
+        transform: rotateX(@rotateX) rotateY(45deg - 360deg);
+      }
+
+    }
+  }
+
+  &.rotate-inverse {
+    animation: rotate-inverse 3s infinite;
+
+    @keyframes rotate-inverse {
+      0% {
+        transform: rotateX(@rotateX) rotateY(45deg);
+      }
+
+      67% {
+        transform: rotateX(@rotateX) rotateY(45deg);
+      }
+
+      100% {
+        transform: rotateX(@rotateX) rotateY(45deg + 360deg);
+      }
+
+    }
+  }
+}
+
+@cube-size-default: 200px;
+//top, bottom, left, right, front, back
+@cube-colors-default: red, yellow, blue, purple, orange, green;
+
+.cube(@cube-size: @cube-size-default; @cube-colors: @cube-colors-default) {
+
+  .cube-@{cube-size} {
+
+    width: @cube-size;
+    height: @cube-size;
+
+    .face {
+      width: @cube-size;
+      height: @cube-size;
+
+      &.top {
+        background: extract(@cube-colors, 1);
+        transform: rotateX(90deg) translateZ(@cube-size/2);
+      }
+      &.bottom {
+        background: extract(@cube-colors, 2);
+        transform: rotateX(90deg) translateZ(-@cube-size/2);
+      }
+      &.left {
+        background: extract(@cube-colors, 3);
+        transform: rotateY(-90deg) translateZ(@cube-size/2);
+      }
+      &.right {
+        background: extract(@cube-colors, 4);
+        transform: rotateY(-90deg) translateZ(-@cube-size/2);
+      }
+      &.front {
+        background: extract(@cube-colors, 5);
+        transform: translateZ(@cube-size/2);
+      }
+      &.back {
+        background: extract(@cube-colors, 6);
+        transform: translateZ(-@cube-size/2);
+      }
+    }
+  }
+
+}
+
+// Cubes with different colors
+
+@opacity: 30%;
+@cubes: @cube-size-default, 300px, 400px;
+@cube-colors-prefix: "cube-colors";
+//top, bottom, left, right, front, back
+@cube-colors-200px: @cube-colors-default;
+@cube-colors-300px: white, yellow, blue, purple, orange, green;
+@cube-colors-400px: black, blue, purple, orange, green, yellow;
+@cube-colors-400px:fade(black, @opacity),fade(blue, @opacity),fade(purple, @opacity),fade(orange, @opacity),fade(green, @opacity),fade(yellow, @opacity);
+@cube-colors-400px:
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.54) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.54) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.54) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.54) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.54) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.54) 100%);
+
+@cube-colors-400px:
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.2) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.2) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.2) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.2) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.2) 100%),
+  radial-gradient(transparent 30%,rgba(16, 47, 91, 0.2) 100%);
+
+.loop(@i: 1) when (@i <= length(@cubes)) {  //注意less数组是从1开始的
+  @cube: extract(@cubes, @i);
+
+  // 使用@@cube获取颜色属性，没有想到更好的方法，拼接如@cube-colors-200px的方式，只能使用@200定义
+  // 对应的颜色定义为
+  // @200: red, yellow, blue, purple, orange, green;
+  // @cube-colors: @@cube;
+
+  // 使用临时变量先获取@cube-colors-str字符串，然后获取@@cube-colors-str对应的参数
+  @cube-colors-str: "@{cube-colors-prefix}-@{cube}";
+  @cube-colors: @@cube-colors-str;
+
+  .cube(@cube; @cube-colors);
+  .loop((@i + 1));
+};
+.loop;

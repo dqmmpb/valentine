@@ -1,0 +1,154 @@
+<!doctype html>
+<html class="no-js theme-gray" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>CSS3</title>
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory -->
+<link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+
+<!-- rev-hash -->
+<!-- build:css assets/css/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:css assets/css/css3/layout.css -->
+<link rel="stylesheet" href="/assets/css/css3/layout.css">
+<!-- endbuild -->
+<!-- end -->
+
+</head>
+<body>
+
+<h1>布局(layout)</h1>
+
+<section>
+  <h2>display</h2>
+  <div id="display">
+    <p class="display">兼容IE6、7的inline-block</p>
+  </div>
+</section>
+
+<section>
+  <h2>float</h2>
+  <div id="float">
+    <p class="float-right">float right</p>
+    <p class="float-left">float left</p>
+    <div class="clearfix"></div>
+  </div>
+</section>
+
+<section>
+  <h2>visibility</h2>
+  <div id="visibility">
+    <p class="visible">visible</p>
+    <p class="hidden">hidden</p>
+    <div class="collapse">
+      <table>
+        <caption align="bottom">注：第一行被隐藏，在chrome下collapse和hidden效果一样</caption>
+        <thead>
+          <tr>
+            <th>姓名</th>
+            <th>性别</th>
+            <th>年龄</th>
+            <th>身高</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="collapse">
+            <td>Zhao</td>
+            <td>male</td>
+            <td>18</td>
+            <td>170</td>
+          </tr>
+          <tr>
+            <td>Qian</td>
+            <td>male</td>
+            <td>18</td>
+            <td>160</td>
+          </tr>
+          <tr>
+            <td>Sun</td>
+            <td>male</td>
+            <td>18</td>
+            <td>180</td>
+          </tr>
+          <tr>
+            <td>Li</td>
+            <td>male</td>
+            <td>18</td>
+            <td>175</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>overflow</h2>
+  <div id="overflow">
+    <p class="visible">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="hidden">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="scroll">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="auto">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+  </div>
+</section>
+
+<section>
+  <h2>overflow-x</h2>
+  <div id="overflow-x">
+    <p class="visible">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="hidden">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="scroll">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="auto">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+  </div>
+</section>
+
+<section>
+  <h2>overflow-y</h2>
+  <div id="overflow-y">
+    <p class="visible">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="hidden">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="scroll">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+    <p class="auto">HiddenHiddenHiddenHiddenHiddenHiddenHiddenHidden</p>
+  </div>
+</section>
+
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/vendor/modernizr.js -->
+<script src="/bower_components/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/common.js -->
+<script src="/_assets/scripts/common.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js assets/scripts/css3/index.js -->
+<script src="/_assets/scripts/css3/index.js"></script>
+<!-- endbuild -->
+<!-- end -->
+</body>
+</html>

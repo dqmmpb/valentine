@@ -1,0 +1,50 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  padding: 20px;
+}
+
+section {
+  position: relative;
+  height: 100%;
+
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+// Margin
+
+#margin {
+
+  p {
+    width: 200px;
+    height: 60px;
+    background: green;
+  }
+  p.margin {
+    margin: 10px 0;
+  }
+
+  div.margin-div {
+    margin: 20px 0;
+  }
+
+  p.margin-collapse {
+    margin: 10px 0;
+  }
+
+  div.margin-div-collapse {
+    border: 1px solid black;
+    margin: 20px 0;
+  }
+
+}

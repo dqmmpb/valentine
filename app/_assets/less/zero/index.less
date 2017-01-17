@@ -1,0 +1,175 @@
+
+/* Variables */
+@import "../core/variables.less";
+
+/* Mixins */
+@import "../core/mixins.less";
+@import "../core/_mixins.less";
+
+@import "common.less";
+
+@global-color: #3cc51f;
+@global-text-gray: #aaa;
+
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  text-align: center;
+  max-width: 750px;
+  position: relative;
+  margin: 0 auto;
+}
+.main {
+  width: 100%;
+  max-width: 750px;
+  height: 100%;
+  background: url('@{imgBaseUrl}/bg.png') 0 0 no-repeat;
+  background-size: 100% 100%;
+  margin: 0 auto;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  //background: rgba(0, 0, 0, 0.6);
+}
+.inner {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+@size: 256px;
+@scanner-info-height: 64px;
+@scanner-line-size: 4px;
+@scanner-line-color: @global-color;
+@scanner-border-width: 512px;
+
+@corner-size: @size * 0.1;
+@corner-border-size: 4px;
+@corner-border-color: @global-color;
+
+.scanner {
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -(@size *0.5 + @scanner-border-width);
+  margin-top: -(@size *0.5 + @scanner-border-width + @scanner-info-height);
+  width: @size;
+  height: @size;
+
+  background: rgba(0, 0, 0, 0.1);
+  border: @scanner-border-width solid rgba(0, 0, 0, 0.5);
+  box-sizing: content-box;
+}
+
+.scanner-info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -(@size * 1.25 *0.5);
+  margin-top: -(@scanner-info-height * 0.5 - @size *0.5);
+  width: @size * 1.25;
+  height: @scanner-info-height;
+}
+
+.scanner-desc {
+  color: @global-text-gray;
+  font-size: 16px;
+  padding: 5px;
+}
+
+.scanner-title {
+  color: @scanner-line-color;
+  font-size: 18px;
+  padding: 5px;
+}
+
+.scanner-inner {
+  position: relative;
+  width: @size;
+  height: @size;
+}
+
+.scanner-corner {
+  width: @corner-size;
+  height: @corner-size;
+  position: absolute;
+}
+
+.corner-top-left {
+  top: 0;
+  left: 0;
+  border-top: @corner-border-size solid @corner-border-color;
+  border-left: @corner-border-size solid @corner-border-color;
+}
+
+.corner-top-right {
+  top: 0;
+  right: 0;
+  border-top: @corner-border-size solid @corner-border-color;
+  border-right: @corner-border-size solid @corner-border-color;
+}
+
+.corner-bottom-right {
+  bottom: 0;
+  right: 0;
+  border-bottom: @corner-border-size solid @corner-border-color;
+  border-right: @corner-border-size solid @corner-border-color;
+}
+
+
+.corner-bottom-left {
+  bottom: 0;
+  left: 0;
+  border-bottom: @corner-border-size solid @corner-border-color;
+  border-left: @corner-border-size solid @corner-border-color;
+}
+
+
+@keyframes scaning {
+  0% {
+    top: 0;
+    opacity: 0.4;
+  }
+
+  50% {
+    top: @size * 0.5;
+    opacity: 1;
+  }
+
+  100% {
+    top: @size;
+    opacity: 0.4;
+  }
+}
+
+.scanner-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: @scanner-line-size;
+  background: linear-gradient(to right, fade(@scanner-line-color, 30%), lighten(@scanner-line-color, 10%), fade(@scanner-line-color, 30%));
+  border-radius: 50% 50%;
+  opacity: 0;
+
+  &.scaning {
+    animation: scaning 3s linear infinite;
+  }
+
+}
+

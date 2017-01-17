@@ -1,0 +1,119 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+body {
+  padding: 20px;
+}
+
+section {
+  position: relative;
+  height: 100%;
+
+  &:after {
+    content: '';
+    clear: both;
+    display: block;
+  }
+}
+
+// Flex
+
+#flex {
+  .box {
+    display: flex;
+    list-style: none;
+  }
+
+  @box-color: #000;
+
+
+  .box1 {
+    &:extend(#flex .box);
+    width: 800px;
+  }
+
+  .box1 li {
+    color: lighten(@box-color, 100%);
+    text-align: center;
+
+    &:nth-child(1) {
+      flex: 1 1 300px;
+      background: lighten(@box-color, 45%);
+    }
+    &:nth-child(2) {
+      flex: 1 1 200px;
+      background: lighten(@box-color, 60%);
+    }
+    &:nth-child(3) {
+      flex: 1 1 500px;
+      background: lighten(@box-color, 75%);
+    }
+
+    &:hover {
+      color: lighten(@box-color, 90%);
+      background: lighten(@box-color, 40%);
+    }
+  }
+
+
+  .box2 {
+    &:extend(#flex .box);
+    width: 800px;
+  }
+
+  .box2 li {
+    color: lighten(@box-color, 100%);
+    text-align: center;
+
+    &:nth-child(1) {
+      flex: 1 1 300px;
+      background: lighten(@box-color, 45%);
+    }
+    &:nth-child(2) {
+      flex: 2 2 200px;
+      background: lighten(@box-color, 60%);
+    }
+    &:nth-child(3) {
+      flex: 3 3 500px;
+      background: lighten(@box-color, 75%);
+    }
+
+    &:hover {
+      color: lighten(@box-color, 90%);
+      background: lighten(@box-color, 40%);
+    }
+  }
+
+  .box3 {
+    &:extend(#flex .box);
+    width: 1200px;
+  }
+
+  .box3 li {
+    color: lighten(@box-color, 100%);
+    text-align: center;
+
+    &:nth-child(1) {
+      flex: 1 1 300px;
+      background: lighten(@box-color, 45%);
+    }
+    &:nth-child(2) {
+      flex: 2 2 200px;
+      background: lighten(@box-color, 60%);
+    }
+    &:nth-child(3) {
+      flex: 3 3 500px;
+      background: lighten(@box-color, 75%);
+    }
+
+    &:hover {
+      color: lighten(@box-color, 90%);
+      background: lighten(@box-color, 40%);
+    }
+  }
+}

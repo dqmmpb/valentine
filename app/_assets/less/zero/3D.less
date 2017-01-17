@@ -1,0 +1,63 @@
+
+/* Variables */
+@import "../core/variables.less";
+
+/* Mixins */
+@import "../core/mixins.less";
+@import "../core/_mixins.less";
+
+@import "common.less";
+@import "cube.less";
+
+
+
+.triangle {
+  //transform-style: preserve-3d;
+  //transform: rotateX(-33.5deg) rotateY(45deg);
+  //transform-origin: center;
+
+  @triangle-size: 200px;
+  .face {
+    width: @triangle-size;
+    height: @triangle-size;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+
+    //text-align: center;
+    //vertical-align: middle;
+    //line-height: @cube-size;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper-outer {
+  width: 600px;
+  height: 600px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -300px;
+  margin-left: -300px;
+}
+
+.wrapper-inner {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -150px;
+  margin-left: -150px;
+}
