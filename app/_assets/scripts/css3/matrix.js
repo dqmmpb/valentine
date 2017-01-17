@@ -32,7 +32,8 @@ $(function(){
   }
 
   function reset() {
-
+    x = Number($('#axis_x').val()) || 30;
+    y = Number($('#axis_y').val()) || 30;
     clearInterval(draw);
     index = 0;
     for(var i = 0; i < total; i++) {
@@ -65,15 +66,13 @@ $(function(){
 
   $('#transform').click(function() {
     reset();
-    x = Number($('#axis_x').val()) || 30;
-    y = Number($('#axis_y').val()) || 30;
     draw = setInterval(function() {
       if(index < total) {
         var pos = $('i.matrix_i:nth-child(' + (index + 1) + ')').position();
 
         $('#current').html($('<p>现在是第<span class="index">' + (index + 1) + '</span>块，坐标是(' + pos.left + ', ' + pos.top + '). 于是有：</p>' +
           '<p> x\' = x + ' + x + ' = ' + pos.left + ' + ' + x + ' = ' + (pos.left + x) + ';</p>' +
-        '<p> y\' = y + ' + y + ' = ' + pos.top + ' + ' + y + ' = ' + (pos.top + y) + ';</p>'));
+          '<p> y\' = y + ' + y + ' = ' + pos.top + ' + ' + y + ' = ' + (pos.top + y) + ';</p>'));
         var nPos = matrix(pos);
         $('i.matrix_i:nth-child(' + (index + 1) + ')').css({
           top: nPos.top,
