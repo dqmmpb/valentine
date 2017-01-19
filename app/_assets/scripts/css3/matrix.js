@@ -2,33 +2,39 @@
 
 $(function(){
 
-  let num = 20, duration = 150;
+  var num = 20, duration = 150;
   var w = 5, h = 5;
-  var draw, timer, index = 0, total = num*num;
+  var draw, timer, index = 0, total = num * num;
 
   // matrix(1, 0, 0, 1, x, y);
   var x = Number($('#axis_x').val()) || 30, y = Number($('#axis_y').val()) || 30;
 
-  var $matrix = $('#matrix-o');
-  for(var i = 0; i < num; i++) {
-    for(var j = 0; j < num; j++) {
-      $('<i class="matrix_i"></i>').css({
-        top: i*w,
-        left: j*w,
-        background: '#05F',
-        zIndex: 1,
-        transitionProperty: 'top, left',
-        transitionDuration: 6*duration + 'ms',
-        transitionTimingFunction: 'ease-in-out'
-      }).appendTo($matrix);
+  function init() {
+    var $matrix = $('#matrix-o');
+    for(var i = 0; i < num; i++) {
+      for(var j = 0; j < num; j++) {
+        $('<i class="matrix_i"></i>').css({
+          top: i * w,
+          left: j * w,
+          width: w,
+          height: h,
+          background: '#05F',
+          zIndex: 1,
+          transitionProperty: 'top, left, width, height',
+          transitionDuration: 6 * duration + 'ms',
+          transitionTimingFunction: 'ease-in-out'
+        }).appendTo($matrix);
+      }
     }
   }
 
   function matrix(position) {
     return {
       top: position.top + y,
-      left: position.left + x
-    }
+      left: position.left + x,
+      width: w,
+      height: h
+    };
   }
 
   function reset() {
@@ -40,15 +46,19 @@ $(function(){
       $('i.matrix_i:nth-child(' + (i + 1) + ')').css({
         top: Math.floor(i / num) * w,
         left: Math.floor(i % num) * w,
+        width: w,
+        height: h,
         background: '#05F',
         zIndex: 1,
-        transitionProperty: 'top, left',
+        transitionProperty: 'top, left, width, height',
         transitionDuration: '0ms',
         transitionTimingFunction: 'ease-in-out'
       });
     }
 
   }
+
+  init();
 
   $('#reset').click(function() {
     reset();
@@ -77,10 +87,12 @@ $(function(){
         $('i.matrix_i:nth-child(' + (index + 1) + ')').css({
           top: nPos.top,
           left: nPos.left,
-          background: '#F60',
+          width: nPos.width,
+          height: nPos.height,
+          background: 'rgba(255, 102, 0, 0.5)',
           zIndex: 2,
-          transitionProperty: 'top, left',
-          transitionDuration: 6*duration + 'ms',
+          transitionProperty: 'top, left, width, height',
+          transitionDuration: 6 * duration + 'ms',
           transitionTimingFunction: 'ease-in-out'
         });
         index++;

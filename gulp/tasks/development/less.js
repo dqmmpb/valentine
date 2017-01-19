@@ -27,6 +27,10 @@ gulp.task('less', () => {
     // .pipe(remfilter)
     // .pipe($.if('*.css',$.px2rem({rootValue: 20})))
     // .pipe(remfilter.restore)
+    .pipe($.if('**/animation.css', $.cssSpriter({
+      spriteSheet: 'build/assets/images/spritesheet.png',
+      pathToSpriteSheetFromCSS: '../../images/spritesheet.png'
+    })))
     .pipe(gulp.dest(config.dest))
     .pipe(reload({stream: true}));
 });
