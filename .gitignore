@@ -7,3 +7,4 @@ test/bower_components
 tar
 build/production
 build/dist
+#.DS_Store
