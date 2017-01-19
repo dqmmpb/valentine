@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js theme-gray" lang="">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<title>CSS3</title>
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory -->
+<link type="image/x-icon" href="favicon.ico" rel="shortcut icon">
+
+<!-- rev-hash -->
+<!-- build:css /assets/css/vendor.css -->
+<!-- bower:css -->
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:css /assets/css/css3/animation.css -->
+<link rel="stylesheet" href="/assets/css/css3/animation.css">
+<!-- endbuild -->
+<!-- end -->
+
+</head>
+<body>
+
+<h1>动画(animation)</h1>
+
+<section>
+  <h2>动画</h2>
+  <div id="animation">
+    <ul>
+      <li class="loading">
+        <h6>加载动画（使用伪类:after实现加载...动画）</h6>
+        <p>Loading</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>动画</h2>
+  <div id="good-morning">
+    <ul>
+      <li>
+        <h6>加载动画（使用伪类:after实现加载...动画）</h6>
+        <p>Loading</p>
+        <div id="student" class="student animate">
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="control">
+    <div class="axis">
+      <label for="axis_x">播放速度（0.3s~3s）默认0.95s，当前<span class="axis_x">0.95</span>s</label>
+    </div>
+    <div class="axis">
+      <input type="range" min="0.3" max="3" step="0.05" value="0.95" id="axis_x" name="axis_x" />
+    </div>
+    <button type="button" class="reset" id="reset">重置</button> <button type="button" class="pause" id="pause">暂停</button>
+  </div>
+</section>
+
+
+<!-- rev-hash -->
+<!-- build:js /assets/scripts/vendor/modernizr.js -->
+<script src="/bower_components/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js /assets/scripts/vendor.js -->
+<!-- bower:js -->
+<script src="/bower_components/jquery/dist/jquery.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js /assets/scripts/common.js -->
+<script src="/_assets/scripts/common.js"></script>
+<!-- endbuild -->
+<!-- end -->
+
+<!-- rev-hash -->
+<!-- build:js /assets/scripts/css3/animation.js -->
+<script src="/_assets/scripts/css3/animation.js"></script>
+<!-- endbuild -->
+<!-- end -->
+</body>
+</html>
